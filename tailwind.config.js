@@ -9,10 +9,12 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        windows: ["windows", "sans-serif"],
+        windowsBold: ["windowsBold", "sans-serif"],
+      },
+    },
   },
   plugins: [],
-  fontFamily: {
-    microsoft: ["microsoft", "sans-serif"]
-  }
 };
