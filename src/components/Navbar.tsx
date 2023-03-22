@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import {
   AppBar,
+  Avatar,
   Button,
   MenuList,
   MenuListItem,
@@ -10,6 +11,7 @@ import {
 import logoIMG from "../../public/logoIMG.png";
 import Image from "next/image";
 import Link from "next/link";
+import me from "../../public/mee.jpg";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -43,6 +45,7 @@ export default function Navbar() {
               Start
             </Button>
             {open && (
+              <div className="w-100">
               <MenuList
                 style={{
                   position: "absolute",
@@ -52,20 +55,30 @@ export default function Navbar() {
                 onClick={() => setOpen(false)}
                 ref={catMenu}
               >
-                <Link href='/about'>
-                <MenuListItem>
-                  <span role="img" aria-label="👨‍💻">
-                    👨‍💻
-                  </span>
-                  About Me
-                </MenuListItem>
+                <Link href="/about">
+                  <MenuListItem>
+                    <span role="img" aria-label="👨‍💻">
+                      👨‍💻
+                    </span>
+                    About Me
+                  </MenuListItem>
                 </Link>
-                <MenuListItem>
-                  <span role="img" aria-label="📁">
-                    📁
-                  </span>
-                  Projects
-                </MenuListItem>
+                <Link href="/projects">
+                  <MenuListItem>
+                    <span role="img" aria-label="📁">
+                      📁
+                    </span>
+                    Projects
+                  </MenuListItem>
+                </Link>
+                <Link href="/contact">
+                  <MenuListItem>
+                    <span role="img" aria-label="📁">
+                      📁
+                    </span>
+                    Contact Me
+                  </MenuListItem>
+                </Link>
                 <Separator />
                 <MenuListItem disabled>
                   <span role="img" aria-label="🔙">
@@ -74,7 +87,20 @@ export default function Navbar() {
                   Logout
                 </MenuListItem>
               </MenuList>
+
+              </div>
             )}
+          </div>
+          <div className="absolute bottom-1 right-1 flex gap-x-3 items-center">
+            <p className="font-sans text-2xl font-bold text-white">C | B</p>
+            <Avatar>
+              <Image
+                src={me}
+                alt={""}
+                height={100}
+                className="bg-contain h-[100%]"
+              />
+            </Avatar>
           </div>
         </Toolbar>
       </AppBar>

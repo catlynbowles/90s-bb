@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+
 module.exports = {
   content: [
     "./app/**/*.{js,ts,jsx,tsx}",
@@ -12,7 +13,10 @@ module.exports = {
     extend: {
       fontFamily: {
         windows: ["windows", "sans-serif"],
-        windowsBold: ["windowsBold", "sans-serif"],
+        
+      },
+      backgroundImage: {
+        vibez: "url('/public/images/vibez.jpeg')",
       },
     },
   },
